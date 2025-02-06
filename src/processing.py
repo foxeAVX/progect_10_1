@@ -5,9 +5,8 @@ word = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.51236
 
 
 def filter_by_state(word: list[dict[str, any]], state_id: str = "EXECUTED") -> list[dict[str, any]]:
-
-    word_state_exe=[]
-    word_state_can=[]
+    """функция принимающая словарь, и выдает
+     новый список с заданным ключем"""
     word_state=[]
 
     for key in word:
@@ -17,45 +16,12 @@ def filter_by_state(word: list[dict[str, any]], state_id: str = "EXECUTED") -> l
     return word_state
 
 
-print(filter_by_state(word))
-
-
-    # for i in word:
-    #     # print(i)
-    #     for key, value in i.items():
-    #         if value=='EXECUTED':
-    #             word_state_exe.append(i)
-    #         elif value=='CANCELED':
-    #             word_state_can.append(i)
-    # return word_state_can
-
-    # word_state = word_state_exe + word_state_can
-    # return word_state
-
-#     for key, value in word:
-#         print(key)
-#         # if value=='EXECUTED':
-#         #     print(word)
-#         # else:
-#         #     print("....")
-#
-#
-# # print(f"{x[1]}")
-#
-# print(filter_by_state(word))
-
-# x=1
-#
-# def xxx(x):
-#     i='x'+'y'
-#     return i
-#
-# print(xxx(x))
-
 def sort_by_date(inform: list[dict[str, any]], reverse: bool = True) -> list[dict[str,any]]:
+    """функция сортировки по дате, словаря"""
     sorted_word_state = sorted(word, key= lambda x: x["date"], reverse= reverse)
     return sorted_word_state
 
 sorted_word_state = sort_by_date(word)
 
+print(filter_by_state(word))
 print(sorted_word_state)
