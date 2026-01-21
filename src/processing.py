@@ -4,7 +4,6 @@ word = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.51236
         {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}]
 
 
-
 def filter_by_state(word: list[dict[str, any]], state_id: str = "EXECUTED") -> list[dict[str, any]]:
     """функция принимающая словарь, и выдает
      новый список с заданным ключем"""
@@ -19,10 +18,11 @@ def filter_by_state(word: list[dict[str, any]], state_id: str = "EXECUTED") -> l
 
 def sort_by_date(inform: list[dict[str, any]], reverse: bool = True) -> list[dict[str, any]]:
     """функция сортировки по дате, словаря"""
-    sorted_word_state = sorted(word, key= lambda x: str(x["date"], reverse= reverse)
+    sorted_word_state = sorted(inform, key=lambda x: str(x["date"]), reverse=reverse)
     return sorted_word_state
 
-#В key=lambda x: x["date"] добавили str(): key=lambda x: str(x["date"]) большенство ошибок пропало
+
+# В key=lambda x: x["date"] добавили str(): key=lambda x: str(x["date"]) большенство ошибок пропало
 
 sorted_word_state = sort_by_date(word)
 
